@@ -1,0 +1,2 @@
+recursive-include satysfi_net/templates *
+recursive-include satysfi_net/static *

@@ -1,0 +1,50 @@
+<html>
+    <head>
+        <title>SATySFi Online</title>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
+        <script src="//code.jquery.com/jquery-3.1.1.slim.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>SATySFi Online</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <h2>.saty</h2>
+                <div class="form-group">
+                <form method="POST">
+                    <textarea class="form-control" name="saty" id="saty">{{ saty }}</textarea>
+                    <input type="submit" value=".saty -> .pdf">
+                </form>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h2>.pdf</h2>
+                <iframe style="width:100%;" src="{{ url_for('static', filename='pdfjs-1.9.426/web/viewer.html') }}?file={{ url_for('pdf', req_id=req_id) }}" id="pdf">
+                </iframe>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h2>stdout</h2>
+                <div class="form-group">
+                    <textarea class="form-control" rows="10">{{ stdout }}</textarea>
+                </form>
+            </div>
+        </div>
+<script>
+    $(function(){
+        $(window).resize(function(){
+            $("#saty").height($("#saty").width()*1.5);
+            $("#pdf").height($("#pdf").width()*1.5);
+        });
+        setInterval(function(){$(window).resize();}, 1000);
+    });
+</script>
+    <body>
+</html>
