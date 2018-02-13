@@ -23,7 +23,7 @@ def index():
 
     path = os.path.join(os.path.dirname(__file__), '../scripts/exec_satisfy.sh')
     p = subprocess.Popen([path, saty], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-    p.wait()
+    p.wait(timeout=60)
     stdout = p.stdout.read().decode('utf-8')
     req_id = p.stderr.read().decode('utf-8')
 
